@@ -111,3 +111,83 @@ const data = [
 
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 */
+
+// STEP 1===========================================================================
+
+function articleMaker( JSON_Object ){
+   
+   //CREATE ELEMENTS 
+   let new_div = document.createElement('div');
+   let new_h2 = document.createElement('h2');
+   let new_date = document.createElement('p');
+   let new_par1 = document.createElement('p');
+   let new_par2 = document.createElement('p');
+   let new_par3 = document.createElement('p');
+   let new_span = document.createElement('span');
+   //ADD CLASSES
+   new_div.classList.add('article');
+   new_date.classList.add('date');
+   new_span.classList.add('expandButton');
+
+   //CREATE CONTENT
+   let add_title = document.createTextNode(JSON_Object['title']);
+   let add_date = document.createTextNode(JSON_Object['date'])
+   let add_p1 = document.createTextNode(JSON_Object['firstParagraph']);
+   let add_p2 = document.createTextNode(JSON_Object['secondParagraph']);
+   let add_p3 = document.createTextNode(JSON_Object['thirdParagraph']);
+
+   //ADD CONTENT TO ELEMENTS
+   new_h2.appendChild(add_title);
+   new_date.appendChild(add_date);
+   new_par1.appendChild(add_p1);
+   new_par2.appendChild(add_p2);
+   new_par3.appendChild(add_p3);
+   
+   console.log(new_div);
+
+   //ADD ELEMENTS TO DIV
+   new_div
+      .appendChild(new_h2)
+      .appendChild(new_date)
+      .appendChild(new_par1)
+      .appendChild(new_par2)
+      .appendChild(new_par3)
+      .appendChild(new_span);
+
+   //ADD EVENT-LISTENER
+   new_span.addEventListener('click', ()=> {  
+      new_div.classList.toggle("article-open");
+
+   })
+
+   return new_div
+}
+
+
+
+
+// STEP 2===========================================================================
+
+
+// STEP 3===========================================================================
+
+
+// STEP 4===========================================================================
+// Step 4: Outside your function, loop over the data. At each iteration you'll use your component 
+// to create an article and append it to the DOM inside the 'articles' div.
+
+for( key in data ){
+      
+      document.querySelector('.articles').appendChild( articleMaker( data[key] ) );
+
+
+   for( innerKey in data[key]){
+
+      // NOT THE INNER ONE ??? WHO KNOWS THOUGH
+      // console.log(data[key][innerKey])
+   }
+   
+}
+
+
+// STEP 5===========================================================================
