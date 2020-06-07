@@ -85,7 +85,23 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
-  }
+  },
+  {
+   title: 'This Is The 5th Article - It Is Just Copied and Pasted -works! ',
+   date: 'Jan 1st, 2019',
+   firstParagraph: `Hodor hodor HODOR! Hodor hodor - hodor, hodor. Hodor hodor... Hodor hodor hodor; hodor hodor. Hodor hodor hodor, hodor, hodor
+         hodor. Hodor, hodor. Hodor. Hodor, hodor - hodor... Hodor hodor hodor; hodor HODOR hodor, hodor hodor?! Hodor hodor, hodor.
+         Hodor hodor hodor hodor hodor! Hodor hodor - HODOR hodor, hodor hodor hodor hodor hodor; hodor hodor? `,
+
+   secondParagraph: `Hodor, hodor. Hodor. Hodor, hodor, hodor. Hodor hodor, hodor. Hodor hodor, hodor, hodor hodor. Hodor! Hodor hodor, hodor;
+         hodor hodor hodor? Hodor, hodor. Hodor. Hodor, hodor - HODOR hodor, hodor hodor hodor! Hodor, hodor. Hodor. Hodor, HODOR
+         hodor, hodor hodor, hodor, hodor hodor. Hodor hodor - hodor - hodor... Hodor hodor hodor hodor hodor hodor hodor?! Hodor
+         hodor - hodor hodor hodor. Hodor. Hodor hodor... Hodor hodor hodor hodor hodor? `,
+
+   thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
+         Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
+         Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+ }
 ];
 
 /* Step 1: Write a component called 'articleMaker' to create an article. You want your component to return markup like the template below: 
@@ -135,6 +151,7 @@ function articleMaker( JSON_Object ){
    let add_p1 = document.createTextNode(JSON_Object['firstParagraph']);
    let add_p2 = document.createTextNode(JSON_Object['secondParagraph']);
    let add_p3 = document.createTextNode(JSON_Object['thirdParagraph']);
+   let add_span_text = document.createTextNode('Open/Close');
 
    //ADD CONTENT TO ELEMENTS
    new_h2.appendChild(add_title);
@@ -142,7 +159,7 @@ function articleMaker( JSON_Object ){
    new_par1.appendChild(add_p1);
    new_par2.appendChild(add_p2);
    new_par3.appendChild(add_p3);
-   
+   new_span.appendChild(add_span_text);
    console.log(new_div);
 
    //ADD ELEMENTS TO DIV

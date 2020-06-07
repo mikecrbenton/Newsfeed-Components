@@ -1,4 +1,4 @@
-This line is importing the font 'Roboto'. DO NOT change line 2
+/* This line is importing the font 'Roboto'. DO NOT change line 2*/
 @font-face {
   font-family: 'Roboto';
   font-style: italic;
@@ -72,9 +72,6 @@ This line is importing the font 'Roboto'. DO NOT change line 2
   cursor: pointer;
   transform: translate(-50%);
   background-color: white;
-  /* added */
-  border: 2px solid black;
-  padding: 1em 2em; 
 }
 .article-open {
   height: 400px;
