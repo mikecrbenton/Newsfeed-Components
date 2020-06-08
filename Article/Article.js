@@ -163,13 +163,12 @@ function articleMaker( JSON_Object ){
    console.log(new_div);
 
    //ADD ELEMENTS TO DIV
-   new_div
-      .appendChild(new_h2)
-      .appendChild(new_date)
-      .appendChild(new_par1)
-      .appendChild(new_par2)
-      .appendChild(new_par3)
-      .appendChild(new_span);
+   new_div.appendChild(new_h2);
+   new_div.appendChild(new_date);
+   new_div.appendChild(new_par1);
+   new_div.appendChild(new_par2);
+   new_div.appendChild(new_par3);
+   new_div.appendChild(new_span);
 
    //ADD EVENT-LISTENER
    new_span.addEventListener('click', ()=> {  
