@@ -145,24 +145,31 @@ function articleMaker( JSON_Object ){
    new_date.classList.add('date');
    new_span.classList.add('expandButton');
 
-   //CREATE CONTENT
-   let add_title = document.createTextNode(JSON_Object['title']);
-   let add_date = document.createTextNode(JSON_Object['date'])
-   let add_p1 = document.createTextNode(JSON_Object['firstParagraph']);
-   let add_p2 = document.createTextNode(JSON_Object['secondParagraph']);
-   let add_p3 = document.createTextNode(JSON_Object['thirdParagraph']);
-   let add_span_text = document.createTextNode('Open/Close');
-
    //ADD CONTENT TO ELEMENTS
-   new_h2.appendChild(add_title);
-   new_date.appendChild(add_date);
-   new_par1.appendChild(add_p1);
-   new_par2.appendChild(add_p2);
-   new_par3.appendChild(add_p3);
-   new_span.appendChild(add_span_text);
+   new_h2.textContent = JSON_Object['title'];
+   new_date.textContent = JSON_Object['date'];
+   new_par1.textContent = JSON_Object['firstParagraph'];
+   new_par2.textContent = JSON_Object['secondParagraph'];
+   new_par3.textContent= JSON_Object['thirdParagraph'];
+   new_span.textContent= 'Open/Close';
+
+   // ( AN ALTERNATE WAY TO CREATE CONTENT / SPLIT )
+   // let add_title = document.createTextNode(JSON_Object['title']);
+   // let add_date = document.createTextNode(JSON_Object['date'])
+   // let add_p1 = document.createTextNode(JSON_Object['firstParagraph']);
+   // let add_p2 = document.createTextNode(JSON_Object['secondParagraph']);
+   // let add_p3 = document.createTextNode(JSON_Object['thirdParagraph']);
+   // let add_span_text = document.createTextNode('Open/Close');
+   // new_h2.appendChild(add_title);
+   // new_date.appendChild(add_date);
+   // new_par1.appendChild(add_p1);
+   // new_par2.appendChild(add_p2);
+   // new_par3.appendChild(add_p3);
+   // new_span.appendChild(add_span_text);
    console.log(new_div);
 
    //ADD ELEMENTS TO DIV
+   // append(var, var, var, var)
    new_div.appendChild(new_h2);
    new_div.appendChild(new_date);
    new_div.appendChild(new_par1);
@@ -180,11 +187,7 @@ function articleMaker( JSON_Object ){
 }
 
 
-
-
 // STEP 2===========================================================================
-
-
 // STEP 3===========================================================================
 
 
@@ -195,13 +198,6 @@ function articleMaker( JSON_Object ){
 for( key in data ){
       
       document.querySelector('.articles').appendChild( articleMaker( data[key] ) );
-
-
-   for( innerKey in data[key]){
-
-      // NOT THE INNER ONE ??? WHO KNOWS THOUGH
-      // console.log(data[key][innerKey])
-   }
    
 }
 

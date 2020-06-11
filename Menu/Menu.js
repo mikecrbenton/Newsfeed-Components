@@ -26,8 +26,8 @@ let menuItems = [
    //CREATE ELEMENTS
    let menu_div = document.createElement('div');
    let menu_ul = document.createElement('ul');
-   //HAS TO BE DECLARED INSIDE LOOP TO WORK - NEW EACH TIME
-   //let menu_li = document.createElement('li'); 
+   // <li> HAS TO BE DECLARED INSIDE LOOP TO WORK - NEW EACH TIME
+   // NO --> let menu_li = document.createElement('li'); 
 
    //ADD CLASSES
    menu_div.classList.add('menu');
@@ -49,6 +49,7 @@ let menuItems = [
    })
 
    return menu_div;
+   
   }
 
   //CALL FUNCTION - APPEND TO THE DOM
