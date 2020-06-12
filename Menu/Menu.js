@@ -9,7 +9,7 @@ let menuItems = [
   'Log Out'
 ];
 
-/* 
+/*======================================================================================= 
   Step 1: Write a component called 'menuMaker' to create a menu like the markup below:
 
   <div class="menu">
@@ -18,16 +18,56 @@ let menuItems = [
     </ul>
   </div>
 
-  The 'menuMaker' takes an array as its only argument.
+  The 'menuMaker' takes an array as its only argument. 
+  =======================================================================================*/
 
+  function menuMaker( myArray ){
+
+   //CREATE ELEMENTS
+   let menu_div = document.createElement('div');
+   let menu_ul = document.createElement('ul');
+   // <li> HAS TO BE DECLARED INSIDE LOOP TO WORK - NEW EACH TIME
+   // NO --> let menu_li = document.createElement('li'); 
+
+   //ADD CLASSES
+   menu_div.classList.add('menu');
+
+   //ADD <li> TO <ul> LIST 
+   myArray.forEach( (item)=> {
+      let menu_li = document.createElement('li'); 
+      menu_ul.appendChild(menu_li).textContent = item;
+   })
+
+   //APPEND ELEMENTS TO DIV
+   menu_div.appendChild(menu_ul);
+
+   //ADD EVENT TO BUTTON
+   let hamburgerMenu = document.querySelector('.menu-button');
+   
+   hamburgerMenu.addEventListener('click', ()=> {
+      menu_div.classList.toggle('menu--open');
+   })
+
+   return menu_div;
+   
+  }
+
+  //CALL FUNCTION - APPEND TO THE DOM
+  document.querySelector('.header').appendChild( menuMaker(menuItems) );
+  
+
+
+
+/*=====================================================================================================================
   Step 2: Inside the function, iterate over the array creating a list item <li> element for each item in the array. 
   Add those items to the <ul>
 
   Step 3: Using a DOM selector, select the menu button (the element with a class of 'menu-button') currently on the DOM.
 
-  Step 4: add a click event listener to the menu button. When clicked it should toggle the class 'menu--open' on the menu (your div with a 'menu' class).
+  Step 4: add a click event listener to the menu button. When clicked it should toggle the class 'menu--open' 
+  on the menu (your div with a 'menu' class).
 
   Step 5: return your div with a 'menu' class.
 
   Step 6: Use 'menuMaker' to create a menu using the 'menuItems' array, and append the returned markup to the DOM.
-*/
+======================================================================================================================*/

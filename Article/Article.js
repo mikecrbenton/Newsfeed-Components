@@ -85,7 +85,23 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
-  }
+  },
+  {
+   title: 'This Is The 5th Article - It Is Just Copied and Pasted -works! ',
+   date: 'Jan 1st, 2019',
+   firstParagraph: `Hodor hodor HODOR! Hodor hodor - hodor, hodor. Hodor hodor... Hodor hodor hodor; hodor hodor. Hodor hodor hodor, hodor, hodor
+         hodor. Hodor, hodor. Hodor. Hodor, hodor - hodor... Hodor hodor hodor; hodor HODOR hodor, hodor hodor?! Hodor hodor, hodor.
+         Hodor hodor hodor hodor hodor! Hodor hodor - HODOR hodor, hodor hodor hodor hodor hodor; hodor hodor? `,
+
+   secondParagraph: `Hodor, hodor. Hodor. Hodor, hodor, hodor. Hodor hodor, hodor. Hodor hodor, hodor, hodor hodor. Hodor! Hodor hodor, hodor;
+         hodor hodor hodor? Hodor, hodor. Hodor. Hodor, hodor - HODOR hodor, hodor hodor hodor! Hodor, hodor. Hodor. Hodor, HODOR
+         hodor, hodor hodor, hodor, hodor hodor. Hodor hodor - hodor - hodor... Hodor hodor hodor hodor hodor hodor hodor?! Hodor
+         hodor - hodor hodor hodor. Hodor. Hodor hodor... Hodor hodor hodor hodor hodor? `,
+
+   thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
+         Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
+         Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+ }
 ];
 
 /* Step 1: Write a component called 'articleMaker' to create an article. You want your component to return markup like the template below: 
@@ -111,3 +127,79 @@ const data = [
 
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 */
+
+// STEP 1===========================================================================
+
+function articleMaker( JSON_Object ){
+   
+   //CREATE ELEMENTS 
+   let new_div = document.createElement('div');
+   let new_h2 = document.createElement('h2');
+   let new_date = document.createElement('p');
+   let new_par1 = document.createElement('p');
+   let new_par2 = document.createElement('p');
+   let new_par3 = document.createElement('p');
+   let new_span = document.createElement('span');
+   //ADD CLASSES
+   new_div.classList.add('article');
+   new_date.classList.add('date');
+   new_span.classList.add('expandButton');
+
+   //ADD CONTENT TO ELEMENTS
+   new_h2.textContent = JSON_Object['title'];
+   new_date.textContent = JSON_Object['date'];
+   new_par1.textContent = JSON_Object['firstParagraph'];
+   new_par2.textContent = JSON_Object['secondParagraph'];
+   new_par3.textContent= JSON_Object['thirdParagraph'];
+   new_span.textContent= 'Open/Close';
+
+   // ( AN ALTERNATE WAY TO CREATE CONTENT / SPLIT )
+   // let add_title = document.createTextNode(JSON_Object['title']);
+   // let add_date = document.createTextNode(JSON_Object['date'])
+   // let add_p1 = document.createTextNode(JSON_Object['firstParagraph']);
+   // let add_p2 = document.createTextNode(JSON_Object['secondParagraph']);
+   // let add_p3 = document.createTextNode(JSON_Object['thirdParagraph']);
+   // let add_span_text = document.createTextNode('Open/Close');
+   // new_h2.appendChild(add_title);
+   // new_date.appendChild(add_date);
+   // new_par1.appendChild(add_p1);
+   // new_par2.appendChild(add_p2);
+   // new_par3.appendChild(add_p3);
+   // new_span.appendChild(add_span_text);
+   console.log(new_div);
+
+   //ADD ELEMENTS TO DIV
+   // append(var, var, var, var)
+   new_div.appendChild(new_h2);
+   new_div.appendChild(new_date);
+   new_div.appendChild(new_par1);
+   new_div.appendChild(new_par2);
+   new_div.appendChild(new_par3);
+   new_div.appendChild(new_span);
+
+   //ADD EVENT-LISTENER
+   new_span.addEventListener('click', ()=> {  
+      new_div.classList.toggle("article-open");
+
+   })
+
+   return new_div
+}
+
+
+// STEP 2===========================================================================
+// STEP 3===========================================================================
+
+
+// STEP 4===========================================================================
+// Step 4: Outside your function, loop over the data. At each iteration you'll use your component 
+// to create an article and append it to the DOM inside the 'articles' div.
+
+for( key in data ){
+      
+      document.querySelector('.articles').appendChild( articleMaker( data[key] ) );
+   
+}
+
+
+// STEP 5===========================================================================
